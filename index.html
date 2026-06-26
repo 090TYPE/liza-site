@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для Елизаветы 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#f7c6d9;
+    --pink-deep:#e58fb1;
+    --rose:#c96d92;
+    --cream:#fff6fa;
+    --text:#6b3b52;
+    --peony:#ffd9e6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Comfortaa',system-ui,sans-serif;
+    background:linear-gradient(160deg,#fff6fa 0%,#ffe3ee 45%,#ffd0e2 100%);
+    color:var(--text);
+    overflow-x:hidden;
+    min-height:100vh;
+  }
+  .petals{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+  .petal{position:absolute;top:-40px;font-size:22px;opacity:.85;animation:fall linear infinite}
+  @keyframes fall{
+    0%{transform:translateY(-40px) rotate(0deg)}
+    100%{transform:translateY(105vh) rotate(360deg)}
+  }
+  .wrap{position:relative;z-index:2;max-width:680px;margin:0 auto;padding:0 18px 80px;display:flex;flex-direction:column}
+
+  /* TOP NAV */
+  .topnav{order:0;position:sticky;top:0;z-index:40;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;
+    background:rgba(255,246,250,.82);backdrop-filter:blur(10px);padding:10px 6px;margin:0 -18px 4px;
+    box-shadow:0 4px 14px rgba(201,109,146,.12)}
+  .topnav a{text-decoration:none;font-size:13px;color:var(--rose);background:#fff;padding:8px 14px;border-radius:20px;
+    box-shadow:0 3px 8px rgba(201,109,146,.15);white-space:nowrap;transition:.15s}
+  .topnav a:active{transform:scale(.93)}
+  .navAnchor{scroll-margin-top:60px}
+  .navDiv{order:9;text-align:center;margin-top:60px}
+  .navDiv .big{font-family:'Caveat',cursive;font-size:30px;color:var(--rose);
+    display:inline-block;padding:4px 22px;border-bottom:3px solid var(--pink)}
+
+  /* group order */
+  .hero{order:1}
+  .gSweet{order:10}
+  .gGame{order:20}
+  .gMeme{order:30}
+  .gPhoto{order:40}
+  #d-sweet{order:9}#d-game{order:19}#d-meme{order:29}#d-photo{order:39}
+  #secretHint{order:11}
+  footer{order:50}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+  .hero h1{font-family:'Caveat',cursive;font-size:clamp(46px,12vw,84px);color:var(--rose);line-height:1}
+  .hero .sub{font-size:clamp(15px,4vw,20px);color:var(--pink-deep)}
+  .counter{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+  .cbox{background:#fff;border-radius:18px;padding:14px 16px;min-width:78px;box-shadow:0 8px 22px rgba(201,109,146,.18)}
+  .cbox b{display:block;font-size:30px;color:var(--rose);font-weight:700}
+  .cbox span{font-size:12px;color:var(--pink-deep)}
+  .scrolldown{margin-top:18px;font-size:13px;color:var(--pink-deep);animation:bob 1.6s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+  section{margin-top:70px}
+  .title{font-family:'Caveat',cursive;font-size:38px;color:var(--rose);text-align:center;margin-bottom:24px}
+
+  /* LOVE BUTTON */
+  .love{text-align:center}
+  .loveBtn{font-family:'Comfortaa';font-size:20px;border:none;cursor:pointer;color:#fff;
+    background:linear-gradient(135deg,var(--pink-deep),var(--rose));
+    padding:18px 30px;border-radius:40px;box-shadow:0 10px 24px rgba(201,109,146,.35);
+    transition:transform .12s}
+  .loveBtn:active{transform:scale(.94)}
+  .loveCount{margin-top:18px;font-size:18px;color:var(--rose);min-height:26px}
+  .loveCount b{font-size:24px}
+
+  /* REASONS */
+  .reasons{display:flex;flex-direction:column;gap:14px}
+  .reason{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 6px 16px rgba(201,109,146,.14);
+    display:flex;gap:12px;align-items:center;opacity:0;transform:translateY(16px);transition:.5s}
+  .reason.show{opacity:1;transform:none}
+  .reason .em{font-size:24px}
+
+  /* ENVELOPES */
+  .envs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .env{background:#fff;border-radius:18px;padding:22px 14px;text-align:center;cursor:pointer;
+    box-shadow:0 6px 16px rgba(201,109,146,.14);transition:transform .15s}
+  .env:hover{transform:translateY(-4px)}
+  .env .ico{font-size:34px}
+  .env .lbl{margin-top:8px;font-size:14px;color:var(--rose)}
+
+  /* GALLERY */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .gallery .ph{aspect-ratio:1;border-radius:14px;overflow:hidden;background:var(--peony);
+    display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--pink-deep);cursor:pointer;
+    box-shadow:0 4px 10px rgba(201,109,146,.12)}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* MUSIC */
+  .music{text-align:center}
+  .vkBtn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#fff;
+    background:linear-gradient(135deg,#5b8fd6,#4a6fb5);padding:15px 26px;border-radius:36px;
+    font-family:'Comfortaa';font-size:16px;box-shadow:0 8px 20px rgba(74,111,181,.3)}
+
+  /* SECRET */
+  .secretHint{text-align:center;margin-top:50px;min-height:60px}
+  .secretBtn{display:none;font-family:'Caveat',cursive;font-size:26px;border:none;cursor:pointer;color:#fff;
+    background:linear-gradient(135deg,#ff9ec4,#d05a87);padding:16px 30px;border-radius:40px;
+    box-shadow:0 0 0 rgba(208,90,135,.6);animation:glow 1.6s infinite}
+  @keyframes glow{0%{box-shadow:0 0 0 0 rgba(208,90,135,.5)}70%{box-shadow:0 0 0 20px rgba(208,90,135,0)}100%{box-shadow:0 0 0 0 rgba(208,90,135,0)}}
+
+  /* OVERLAY */
+  .overlay{position:fixed;inset:0;z-index:50;background:rgba(120,40,70,.55);backdrop-filter:blur(6px);
+    display:none;align-items:center;justify-content:center;padding:24px}
+  .overlay.open{display:flex;animation:fadein .3s}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  .card{background:var(--cream);border-radius:24px;padding:30px 24px;max-width:440px;text-align:center;
+    box-shadow:0 20px 60px rgba(120,40,70,.4);position:relative;max-height:86vh;overflow:auto}
+  .card h3{font-family:'Caveat',cursive;font-size:34px;color:var(--rose);margin-bottom:14px}
+  .card p{font-size:16px;line-height:1.65;color:var(--text)}
+  .card .close{position:absolute;top:12px;right:16px;font-size:24px;cursor:pointer;color:var(--pink-deep);background:none;border:none}
+  .card img{max-width:100%;border-radius:16px;margin-top:10px}
+
+  /* LOVE LANGS */
+  .langline{font-size:clamp(14px,4vw,18px);color:var(--rose);min-height:26px;font-weight:600;transition:opacity .4s}
+
+  /* HEART TRAIL */
+  .trail{position:fixed;z-index:60;pointer-events:none;font-size:16px;animation:trailUp .9s ease-out forwards}
+  @keyframes trailUp{0%{opacity:.9;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-40px) scale(.4)}}
+
+  /* HUG */
+  .hugBtn{font-family:'Comfortaa';font-size:18px;border:none;cursor:pointer;color:#fff;
+    background:linear-gradient(135deg,#ffb3cd,#e07a9e);padding:15px 26px;border-radius:36px;
+    box-shadow:0 8px 20px rgba(224,122,158,.3)}
+  .hugAnim{font-size:90px;animation:hugPulse 1.2s ease-in-out infinite}
+  @keyframes hugPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+
+  /* COOKIE */
+  .cookieBtn{font-size:54px;background:none;border:none;cursor:pointer;transition:transform .15s}
+  .cookieBtn:active{transform:rotate(-12deg) scale(.9)}
+
+  /* QUIZ */
+  .quiz{background:#fff;border-radius:18px;padding:20px;box-shadow:0 6px 16px rgba(201,109,146,.14)}
+  .quiz .q{font-size:17px;margin-bottom:14px;color:var(--text)}
+  .quiz .opt{display:block;width:100%;text-align:left;background:var(--cream);border:2px solid var(--peony);
+    border-radius:12px;padding:12px 14px;margin-bottom:8px;cursor:pointer;font-family:'Comfortaa';font-size:14px;color:var(--text);transition:.15s}
+  .quiz .opt:hover{border-color:var(--pink-deep)}
+  .quiz .opt.right{background:#d8f5dd;border-color:#7cc98a}
+  .quiz .opt.wrong{background:#ffe0e0;border-color:#e58f8f}
+  .quiz .nav{margin-top:8px;font-size:13px;color:var(--pink-deep);text-align:center}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:26px}
+  .timeline::before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:3px;background:var(--pink)}
+  .tl{position:relative;margin-bottom:20px;opacity:0;transform:translateX(14px);transition:.5s}
+  .tl.show{opacity:1;transform:none}
+  .tl::before{content:'';position:absolute;left:-23px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 4px var(--peony)}
+  .tl .date{font-size:12px;color:var(--pink-deep)}
+  .tl .txt{font-size:15px;color:var(--text);margin-top:2px}
+
+  /* SCRATCH */
+  .scratchWrap{position:relative;max-width:360px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 6px 16px rgba(201,109,146,.18)}
+  .scratchMsg{padding:40px 20px;text-align:center;font-family:'Caveat',cursive;font-size:26px;color:var(--rose);background:var(--cream)}
+  .scratchCanvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none}
+  .scratchHint{text-align:center;font-size:13px;color:var(--pink-deep);margin-top:8px}
+
+  /* CATCH GAME */
+  .game{position:relative;height:340px;background:#fff0f6;
+    border-radius:18px;overflow:hidden;box-shadow:inset 0 0 0 2px var(--peony)}
+  .game .fh{position:absolute;font-size:26px;cursor:pointer;user-select:none;animation:gfall linear forwards}
+  @keyframes gfall{to{transform:translateY(360px)}}
+  .gameHud{display:flex;justify-content:space-between;font-size:14px;color:var(--rose);margin-bottom:8px;padding:0 4px}
+  .gameStart{display:block;margin:10px auto 0;font-family:'Comfortaa';font-size:16px;border:none;cursor:pointer;
+    color:#fff;background:linear-gradient(135deg,var(--pink-deep),var(--rose));padding:12px 24px;border-radius:30px}
+
+  /* WHEEL */
+  .wheelWrap{text-align:center}
+  .wheelBox{position:relative;width:240px;height:240px;margin:0 auto}
+  .wheel{width:240px;height:240px;border-radius:50%;border:6px solid #fff;box-shadow:0 8px 22px rgba(201,109,146,.25);
+    transition:transform 4s cubic-bezier(.17,.67,.12,.99)}
+  .wheelPin{position:absolute;top:-6px;left:50%;transform:translateX(-50%);font-size:30px;z-index:2}
+  .wheelBtn{margin-top:16px;font-family:'Comfortaa';font-size:16px;border:none;cursor:pointer;color:#fff;
+    background:linear-gradient(135deg,var(--pink-deep),var(--rose));padding:12px 26px;border-radius:30px}
+  .wheelRes{margin-top:12px;font-size:18px;color:var(--rose);min-height:26px}
+
+  /* BALLOONS */
+  .balloons{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .balloon{font-size:54px;cursor:pointer;transition:transform .15s;line-height:1}
+  .balloon:active{transform:scale(.85)}
+  .balloon.pop{animation:pop .3s forwards}
+  @keyframes pop{to{transform:scale(0);opacity:0}}
+
+  /* STARS */
+  .sky{position:relative;height:260px;background:linear-gradient(180deg,#2a2150,#5a3a6e);
+    border-radius:18px;overflow:hidden;box-shadow:0 8px 22px rgba(90,58,110,.3)}
+  .star{position:absolute;color:#fff;font-size:18px;cursor:pointer;text-shadow:0 0 8px #fff;animation:twinkle 2s infinite}
+  @keyframes twinkle{0%,100%{opacity:.5}50%{opacity:1}}
+
+  /* CAPSULE */
+  .capsule{text-align:center;background:#fff;border-radius:18px;padding:24px;box-shadow:0 6px 16px rgba(201,109,146,.14)}
+  .capsule .lock{font-size:48px}
+  .capsule .cd{font-size:20px;color:var(--rose);margin-top:10px;font-weight:600}
+  .capsule .note{font-size:13px;color:var(--pink-deep);margin-top:6px}
+
+  /* SOS + HOROSCOPE buttons */
+  .bigBtn{font-family:'Comfortaa';font-size:16px;border:none;cursor:pointer;color:#fff;
+    background:linear-gradient(135deg,var(--pink-deep),var(--rose));padding:14px 26px;border-radius:30px;
+    box-shadow:0 8px 20px rgba(201,109,146,.3)}
+
+  /* MEL BOARD */
+  .melBoard{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .melBtn{font-family:'Comfortaa';font-size:15px;font-weight:600;border:none;cursor:pointer;color:#fff;
+    background:linear-gradient(135deg,#7b4dd6,#b54ad6);padding:18px 12px;border-radius:16px;
+    box-shadow:0 6px 16px rgba(123,77,214,.3);transition:transform .12s}
+  .melBtn:active{transform:scale(.93)}
+  .melRandom{display:block;margin:14px auto 0;font-family:'Comfortaa';font-size:16px;border:none;cursor:pointer;
+    color:#fff;background:linear-gradient(135deg,#d05a87,#b54ad6);padding:13px 26px;border-radius:30px}
+  .melBig{font-family:'Caveat',cursive;font-size:clamp(40px,11vw,72px);color:#b54ad6;text-align:center;line-height:1.05}
+  .shake{animation:shake .5s}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-10px) rotate(-3deg)}40%{transform:translateX(10px) rotate(3deg)}60%{transform:translateX(-8px)}80%{transform:translateX(8px)}}
+  .memeVids{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:520px){.memeVids{grid-template-columns:1fr}}
+  .mv{background:#000;border-radius:14px;overflow:hidden;box-shadow:0 6px 16px rgba(123,77,214,.25)}
+  .mv .frame{position:relative;width:100%;aspect-ratio:9/16}
+  .mv iframe,.mv video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;object-fit:cover}
+  .mv .cap{background:#fff;color:#b54ad6;font-size:13px;padding:8px 10px;text-align:center;font-weight:600}
+  .melCap{font-family:'Caveat',cursive;font-size:30px;color:#b54ad6;text-align:center;margin-bottom:10px}
+  .card .mv{width:min(100%,300px);margin:0 auto}
+  .melBall{text-align:center}
+  .ball8{font-size:80px;cursor:pointer;display:inline-block;transition:transform .1s}
+  .ball8.roll{animation:shake .5s}
+
+  /* TYPEWRITER */
+  .typeBox{background:#fff;border-radius:18px;padding:24px;min-height:180px;box-shadow:0 6px 16px rgba(201,109,146,.14);
+    font-family:'Caveat',cursive;font-size:24px;color:var(--text);line-height:1.5;white-space:pre-wrap}
+  .typeBox .cur{color:var(--pink-deep)}
+
+  /* DREAMS */
+  .dreams{display:flex;flex-direction:column;gap:10px}
+  .dream{display:flex;align-items:center;gap:12px;background:#fff;border-radius:14px;padding:14px 16px;
+    box-shadow:0 4px 12px rgba(201,109,146,.12);cursor:pointer;font-size:15px;color:var(--text)}
+  .dream .box{width:24px;height:24px;border-radius:8px;border:2px solid var(--pink-deep);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:16px;transition:.15s}
+  .dream.done .box{background:var(--pink-deep);color:#fff}
+  .dream.done span{text-decoration:line-through;opacity:.6}
+
+  /* ADVENT */
+  .advent{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .adv{aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,#ffd0e2,#ffb3cd);
+    display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:30px;color:#fff;
+    cursor:pointer;box-shadow:0 4px 12px rgba(201,109,146,.18);transition:transform .15s}
+  .adv:hover{transform:scale(1.05)}
+  .adv.opened{background:linear-gradient(135deg,#fff,#ffe9f1);color:var(--rose);font-size:26px}
+
+  /* REPLY */
+  .reply textarea{width:100%;min-height:90px;border:2px solid var(--peony);border-radius:14px;padding:12px;
+    font-family:'Comfortaa';font-size:14px;color:var(--text);resize:vertical;outline:none}
+  .reply textarea:focus{border-color:var(--pink-deep)}
+  .reply .row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;justify-content:center}
+  .reply .saved{margin-top:12px;font-size:14px;color:var(--rose);text-align:center;min-height:20px}
+
+  /* PUZZLE */
+  .puzzle{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:300px;max-width:90vw;aspect-ratio:1;margin:0 auto;
+    background:var(--peony);border-radius:12px;padding:4px}
+  .ptile{border-radius:8px;background-size:300px 300px;cursor:pointer;background-color:var(--peony)}
+  .ptile.empty{background:none;cursor:default}
+
+  /* MEMORY */
+  .memory{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:360px;margin:0 auto}
+  .mcard{aspect-ratio:1;border-radius:10px;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .35s}
+  .mcard.flip{transform:rotateY(180deg)}
+  .mcard .face{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .mcard .back{background:linear-gradient(135deg,var(--pink-deep),var(--rose));color:#fff;font-size:22px}
+  .mcard .front{transform:rotateY(180deg);background:var(--peony)}
+  .mcard .front img{width:100%;height:100%;object-fit:cover}
+  .mcard.done{opacity:.5}
+
+  /* SLIDESHOW */
+  .slideshow{position:relative;max-width:420px;margin:0 auto;aspect-ratio:4/3;border-radius:18px;overflow:hidden;
+    background:var(--peony);box-shadow:0 8px 22px rgba(201,109,146,.22)}
+  .slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
+  .slideshow img.on{opacity:1}
+  .slideCtrl{text-align:center;margin-top:12px}
+
+  /* ACHIEVEMENTS */
+  .achGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .ach{background:#fff;border-radius:14px;padding:14px 8px;text-align:center;box-shadow:0 4px 12px rgba(201,109,146,.12);
+    opacity:.35;filter:grayscale(1);transition:.3s}
+  .ach.got{opacity:1;filter:none}
+  .ach .ai{font-size:30px}
+  .ach .an{font-size:11px;color:var(--text);margin-top:4px}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);z-index:80;
+    background:#fff;border-radius:30px;padding:12px 22px;box-shadow:0 8px 24px rgba(201,109,146,.35);
+    font-size:14px;color:var(--rose);transition:transform .4s;display:flex;align-items:center;gap:8px}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  footer{text-align:center;margin-top:60px;font-size:13px;color:var(--pink-deep)}
+</style>
+</head>
+<body>
+<div class="petals" id="petals"></div>
+
+<div class="wrap">
+
+  <!-- TOP NAV -->
+  <nav class="topnav">
+    <a href="#d-sweet">💗 Милое</a>
+    <a href="#d-game">🎮 Игры</a>
+    <a href="#d-meme">😈 Мемы</a>
+    <a href="#d-photo">📸 Фото·Музыка</a>
+  </nav>
+
+  <!-- GROUP DIVIDERS (позиция через CSS order) -->
+  <div class="navDiv navAnchor" id="d-sweet"><span class="big">💗 Милое</span></div>
+  <div class="navDiv navAnchor" id="d-game"><span class="big">🎮 Игры</span></div>
+  <div class="navDiv navAnchor" id="d-meme"><span class="big">😈 Мемы Мелстроя</span></div>
+  <div class="navDiv navAnchor" id="d-photo"><span class="big">📸 Фото и музыка</span></div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Привет, Лиза 💗</h1>
+    <div class="sub">этот маленький сайт — только для тебя</div>
+    <div class="langline" id="langline"></div>
+    <div class="counter" id="counter"></div>
+    <div class="scrolldown">листай вниз ⌄</div>
+  </header>
+
+  <!-- LOVE BUTTON -->
+  <section class="love gSweet">
+    <div class="title">Сколько я тебя люблю?</div>
+    <button class="loveBtn" id="loveBtn">нажми меня 💖</button>
+    <div class="loveCount" id="loveCount"></div>
+    <div style="margin-top:22px"><button class="hugBtn" id="hugBtn">обними меня 🤗</button></div>
+  </section>
+
+  <!-- REASONS -->
+  <section class="gSweet">
+    <div class="title">За что я тебя люблю</div>
+    <div class="reasons" id="reasons"></div>
+  </section>
+
+  <!-- ENVELOPES -->
+  <section class="gSweet">
+    <div class="title">Открой, если...</div>
+    <div class="envs" id="envs"></div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="gSweet">
+    <div class="title">Наша история</div>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="gGame">
+    <div class="title">Насколько хорошо ты меня знаешь?</div>
+    <div class="quiz" id="quiz"></div>
+  </section>
+
+  <!-- COOKIE -->
+  <section style="text-align:center" class="gGame">
+    <div class="title">Печенье с предсказанием</div>
+    <button class="cookieBtn" id="cookieBtn">🥠</button>
+    <div style="font-size:13px;color:var(--pink-deep);margin-top:6px">нажми на печеньку</div>
+  </section>
+
+  <!-- SLIDESHOW -->
+  <section class="gPhoto">
+    <div class="title">Слайд-шоу 🎞️</div>
+    <div class="slideshow" id="slideshow"></div>
+    <div class="slideCtrl"><button class="bigBtn" id="slideBtn">▶ играть с музыкой</button></div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gPhoto">
+    <div class="title">Мы с тобой</div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <!-- PUZZLE -->
+  <section class="gGame">
+    <div class="title">Собери пазл 🧩</div>
+    <div class="puzzle" id="puzzle"></div>
+    <div style="text-align:center;margin-top:12px"><button class="bigBtn" id="puzzleBtn">перемешать</button></div>
+    <div id="puzzleMsg" style="text-align:center;margin-top:10px;font-size:16px;color:var(--rose);min-height:24px"></div>
+  </section>
+
+  <!-- MEMORY -->
+  <section class="gGame">
+    <div class="title">Игра «память» 🃏</div>
+    <div class="memory" id="memory"></div>
+    <div style="text-align:center;margin-top:12px"><button class="bigBtn" id="memoryBtn">новая игра</button></div>
+    <div id="memoryMsg" style="text-align:center;margin-top:10px;font-size:16px;color:var(--rose);min-height:24px"></div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="music gPhoto">
+    <div class="title">Наша музыка</div>
+    <a class="vkBtn" id="vkBtn" href="ВСТАВЬ_ССЫЛКУ_VK" target="_blank" rel="noopener">🎵 Открыть плейлист ВКонтакте</a>
+  </section>
+
+  <!-- CATCH GAME -->
+  <section class="gGame">
+    <div class="title">Лови сердечки 💗</div>
+    <div class="gameHud"><span id="gameScore">очки: 0</span><span id="gameTime">⏱ 30</span></div>
+    <div class="game" id="game"></div>
+    <button class="gameStart" id="gameStart">старт</button>
+  </section>
+
+  <!-- WHEEL -->
+  <section class="wheelWrap gGame">
+    <div class="title">Что сегодня делаем?</div>
+    <div class="wheelBox">
+      <div class="wheelPin">🔻</div>
+      <div class="wheel" id="wheel"></div>
+    </div>
+    <button class="wheelBtn" id="wheelBtn">крутить 🎡</button>
+    <div class="wheelRes" id="wheelRes"></div>
+  </section>
+
+  <!-- BALLOONS -->
+  <section class="gGame">
+    <div class="title">Лопни шарик 🎈</div>
+    <div class="balloons" id="balloons"></div>
+  </section>
+
+  <!-- STARS -->
+  <section class="gGame">
+    <div class="title">Загадай на звезду 🌟</div>
+    <div class="sky" id="sky"></div>
+    <div style="text-align:center;font-size:13px;color:var(--pink-deep);margin-top:8px">нажми на звёздочку</div>
+  </section>
+
+  <!-- CAPSULE -->
+  <section class="gSweet">
+    <div class="title">Капсула времени ⏳</div>
+    <div class="capsule" id="capsule"></div>
+  </section>
+
+  <!-- SOS + HOROSCOPE -->
+  <section style="text-align:center;display:flex;gap:14px;flex-wrap:wrap;justify-content:center" class="gGame">
+    <button class="bigBtn" id="sosBtn">🆘 мне грустно</button>
+    <button class="bigBtn" id="horoBtn">🔮 наш гороскоп</button>
+  </section>
+
+  <!-- MEL MEMES -->
+  <section class="gMeme">
+    <div class="title">Мелстрой 😈</div>
+    <div class="melBoard" id="melBoard"></div>
+    <button class="melRandom" id="melRandom">рандомная фраза 🎲</button>
+  </section>
+
+  <!-- MAGIC BALL -->
+  <section class="melBall gMeme">
+    <div class="title">Это пизда или нормальды?</div>
+    <div style="font-size:13px;color:var(--pink-deep);margin-bottom:10px">задумай вопрос и жми на шар</div>
+    <div class="ball8" id="ball8">🔮</div>
+    <div id="ballRes" style="margin-top:14px;font-size:20px;color:#b54ad6;min-height:28px;font-weight:600"></div>
+  </section>
+
+  <!-- TYPEWRITER -->
+  <section class="gSweet">
+    <div class="title">Письмо тебе ✍️</div>
+    <div class="typeBox" id="typeBox"></div>
+  </section>
+
+  <!-- DREAMS -->
+  <section class="gSweet">
+    <div class="title">Карта наших мечт ✨</div>
+    <div class="dreams" id="dreams"></div>
+  </section>
+
+  <!-- ADVENT -->
+  <section class="gSweet">
+    <div class="title">Открывай по окошку 🎁</div>
+    <div class="advent" id="advent"></div>
+  </section>
+
+  <!-- REPLY -->
+  <section class="reply gSweet">
+    <div class="title">Напиши мне в ответ 💌</div>
+    <textarea id="replyText" placeholder="оставь мне сообщение..."></textarea>
+    <div class="row">
+      <button class="bigBtn" id="replySave">сохранить 💾</button>
+      <button class="bigBtn" id="replySend" style="background:linear-gradient(135deg,#5b8fd6,#4a6fb5)">отправить мне 📤</button>
+    </div>
+    <div class="saved" id="replySaved"></div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="gSweet">
+    <div class="title">Твои достижения 🏆</div>
+    <div class="achGrid" id="achGrid"></div>
+  </section>
+
+  <!-- SCRATCH -->
+  <section class="gSweet">
+    <div class="title">Сотри и прочти 🪙</div>
+    <div class="scratchWrap">
+      <div class="scratchMsg" id="scratchMsg"></div>
+      <canvas class="scratchCanvas" id="scratchCanvas"></canvas>
+    </div>
+    <div class="scratchHint">проведи пальцем по серому</div>
+  </section>
+
+  <!-- SECRET -->
+  <div class="secretHint" id="secretHint">
+    <button class="secretBtn" id="secretBtn">тут что-то спрятано... 💝</button>
+  </div>
+
+  <footer>сделано с любовью, только для тебя 🌷</footer>
+</div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay">
+  <div class="card">
+    <button class="close" id="closeBtn">×</button>
+    <div id="cardContent"></div>
+  </div>
+</div>
+
+<audio id="bgAudio" loop src="song.mp3"></audio>
+
+<script>
+/* ====== НАСТРОЙКИ (меняй текст тут) ====== */
+
+// дата начала (год, месяц-1, день) — 17 мая 2026
+const START = new Date(2026, 4, 17, 0, 0, 0);
+
+// причины «за что люблю»
+const REASONS = [
+  ["👀","Твои милые глазки — могу смотреть в них вечно"],
+  ["😄","Ты так мило смеёшься, что я улыбаюсь сам собой"],
+  ["🎯","У нас столько общих интересов — с тобой не скучно ни минуты"],
+  ["🤭","Наши общие смехуятинки, которые понимаем только мы вдвоём"],
+  ["💬","С тобой можно говорить обо всём — и молчать тоже хорошо"],
+  ["🌷","Ты делаешь обычный день особенным просто тем, что ты есть"]
+];
+
+// конверты «открой если»
+const ENVS = [
+  ["😔","если грустно","Эй. Иди сюда, обниму. Что бы ни случилось — ты не одна, я рядом. Это пройдёт, а я останусь. Ты сильная и любимая. 💗"],
+  ["🥺","если скучаешь","Я тоже скучаю по тебе прямо сейчас. Закрой глаза — представь, что я рядом и держу тебя за руку. Уже скоро увидимся. 🤍"],
+  ["😤","если злишься","Имеешь полное право. Подыши, выпей чаю, можешь поругаться мне в сообщения — я выдержу. Ты всё равно самая лучшая, даже сердитая. 😌"],
+  ["🌙","если не спится","Поздно, а ты не спишь. Я бы сейчас рассказал тебе глупую историю, пока не уснёшь. Спокойной ночи, моя хорошая. ⭐"]
+];
+
+// финальное секретное сообщение
+const SECRET = {
+  title: "Раз ты нашла это... 💝",
+  html: `<p>Лиза, я не очень умею говорить такие вещи вслух, поэтому спрятал их здесь.<br><br>
+  С 17 мая ты стала самой тёплой частью моих дней. Каждое «доброе утро» и каждая смехуятинка — я храню их все.<br><br>
+  Спасибо, что ты есть. Я тебя очень люблю. 🌹</p>`
+};
+
+// сколько фото (файлы клади в папку photos: 1.jpg, 2.jpg, ...)
+const PHOTO_COUNT = 30;
+const PHOTO_CAPTIONS = {}; // напр: {1:"наш первый день", 5:"то самое кафе"}
+
+// «люблю» на языках (меняется в hero)
+const LOVE_LANGS = [
+  "я тебя люблю","I love you","te amo","je t'aime","ti amo",
+  "ich liebe dich","seni seviyorum","я кохаю тебе","愛してる","사랑해"
+];
+
+// таймлайн «наша история» [дата, эмодзи, текст]
+const TIMELINE = [
+  ["17 мая","💬","Мы начали общаться — и понеслось"],
+  ["18 мая","😄","Первая общая смехуятинка"],
+  ["25 июня","🌷","Первая встреча вживую"],
+  ["сейчас","💗","Ты читаешь это — и это лучшее"]
+];
+
+// викторина [вопрос, [варианты], индекс_правильного]
+const QUIZ = [
+  ["Когда мы начали общаться?", ["17 мая","1 января","в прошлом году","не помню 😅"], 0],
+  ["Что я в тебе люблю больше всего?", ["всё сразу 💗","только глазки","твой смех","секрет"], 0],
+  ["Сколько раз я думаю о тебе за день?", ["слишком много","пару раз","постоянно","больше чем дышу"], 3]
+];
+const QUIZ_END = ["Ну ты даёшь ❤️ знаешь меня лучше всех","Почти идеально 💕","Неважно сколько баллов — я всё равно твой 😌"];
+
+// печенья с предсказаниями (рандом)
+const FORTUNES = [
+  "Сегодня тебя кто-то очень любит. (это я)",
+  "Скоро тебя ждёт обнимашка 🤗",
+  "Ты делаешь этот мир теплее, правда.",
+  "Улыбнись — тебе очень идёт 😊",
+  "Твой смех — моя любимая песня.",
+  "Всё будет хорошо. Я рядом. 💗",
+  "Ты сильнее, чем думаешь. И милее, чем кажешься.",
+  "Загадай желание — половину я уже исполняю тем, что люблю тебя."
+];
+
+// текст обнимашки
+const HUG_TEXT = "крепко-крепко обнимаю тебя 🤍 всё хорошо, ты самая любимая";
+
+// сообщение под скретч-картой
+const SCRATCH_MSG = "ты нашла спрятанное «я тебя люблю» 💗";
+
+// колесо «что делаем» — идеи
+const WHEEL = ["смотрим фильм 🎬","готовим вместе 🍝","гуляем 🌳","обнимашки весь день 🤗","кафе ☕","играем во что-то 🎮","фотаемся 📸","просто валяемся 🛋️"];
+
+// шарики с записками
+const BALLOONS = [
+  "ты super 💗","скучаю по тебе","ты делаешь меня счастливым","моя самая красивая",
+  "обнимаю 🤗","твой смех = моя слабость","ты лучшее что есть","люблю тебя 🌹"
+];
+
+// звёздное небо — пожелания (нажми на звезду)
+const WISHES = [
+  "загадай — и оно сбудется ⭐","ты — моя любимая звезда","пусть у тебя всё будет хорошо",
+  "я рядом, даже когда далеко","ты светишь ярче всех","спокойной ночи, моя хорошая 🌙"
+];
+
+// капсула времени: откроется в эту дату (год, месяц-1, день)
+const CAPSULE_DATE = new Date(2027, 4, 17, 0, 0, 0); // годовщина 17 мая
+const CAPSULE_MSG = "Прошёл целый год с 17 мая. И я люблю тебя ещё сильнее, чем в начале. Спасибо за каждый день. 💗🌹";
+
+// SOS «мне грустно» — утешения (рандом)
+const SOS = [
+  "Эй. Дыши. Я рядом, и это пройдёт. 🤍",
+  "Ты не одна. Никогда. Я с тобой.",
+  "Можно поплакать. А потом я тебя обниму.",
+  "Ты справишься. Ты сильная и любимая. 💗",
+  "Налей чаю, закутайся. Я держу тебя за руку.",
+  "Что бы ни случилось — ты для меня всё."
+];
+
+// === МЕМЫ МЕЛСТРОЯ ===
+// фразы-кнопки. при клике открывается мем-видео фразы.
+//   txt  — надпись на кнопке
+//   em   — эмодзи
+//   vid  — {type:'yt', src:'ID_ютуба'}  или  {type:'local', src:'файл.mp4'} (файл в папке memes)
+//   если vid нет — просто покажет фразу большим текстом
+const MEL_PHRASES = [
+  {txt:"ОМАЙГАД", em:"😱", vid:{type:'yt', src:'tJahu6W3bxw'}},
+  {txt:"да ну нахуй реально", em:"😤", vid:{type:'yt', src:'R20zMdAE2L0'}},
+  {txt:"я помылся", em:"🚿", vid:{type:'yt', src:'8sHoyXyKEGE'}},
+  {txt:"это пизда или нормальды?", em:"🤔", vid:{type:'yt', src:'nmqo9_pJeNE'}},
+  {txt:"вот с такенной елдой", em:"📏", vid:{type:'yt', src:'J_bDGsggSYs'}},
+  {txt:"бем бем бем", em:"🎶", vid:{type:'yt', src:'Q7DJb3lcqbU'}},
+  {txt:"ам ам ам", em:"😋", vid:{type:'yt', src:'1zm-O7ZMApk'}},
+  {txt:"ЕСТЬ!!", em:"🤑", vid:{type:'yt', src:'qMFG4tg7p_8'}},
+  {txt:"изи изи бриджи", em:"😎", vid:{type:'yt', src:'sglT0iZnWiM'}},
+  {txt:"хамам", em:"🥵", vid:{type:'yt', src:'lDKs-6sbCac'}},
+  {txt:"ты далбаёб нахуй", em:"🤬", vid:{type:'yt', src:'FynPT5tK3fg'}},
+  {txt:"плаки плаки", em:"😭", vid:{type:'yt', src:'GwOyVJJxfUQ'}}
+];
+// вердикты «магического шара»
+const MEL_VERDICTS = [
+  "это нормальды ✅","это пизда ❌","ОМАЙГАД конечно да 😱","вот с такенной елдой — однозначно 📏",
+  "изи бриджи, всё получится 😎","бем бем, не парься 🔥","хамамм... спорно 🥵","нормальды, я гарантирую"
+];
+
+// печатающееся признание (текст письма)
+const TYPE_TEXT = "Лиза...\nя долго думал, что написать.\nс 17 мая ты — лучшее, что со мной случилось.\nтвои глазки, твой смех, наши смехуятинки —\nя люблю в тебе всё.\nспасибо, что ты есть. 💗";
+
+// карта мечт — что хотим вместе (чекбоксы сохраняются)
+const DREAMS = [
+  "съездить вместе на море 🌊",
+  "посмотреть все части любимого фильма 🎬",
+  "приготовить ужин вдвоём 🍝",
+  "сходить на концерт 🎤",
+  "встретить вместе новый год 🎄",
+  "сделать общую фотосессию 📸"
+];
+
+// адвент-календарь — 12 сюрпризов
+const ADVENT = [
+  "ты сегодня особенно красивая 💗","я думаю о тебе прямо сейчас","держи виртуальный поцелуй 😘",
+  "ты делаешь меня счастливым","напоминаю: ты лучшая 🌹","обнимаю крепко-крепко 🤗",
+  "твой смех — моя любимая мелодия","я горжусь тобой","ты сильная и любимая 💪",
+  "спасибо что ты со мной","омайгад как я тебя люблю 😱","секретик: я улыбаюсь когда вижу твоё имя 🥰"
+];
+
+// ачивки [id, иконка, название]
+const ACHIEVEMENTS = [
+  ["love","💖","Первый клик любви"],
+  ["env","✉️","Открыла конверт"],
+  ["game","🎮","Поймала сердечки"],
+  ["mel","😈","Мелстрой-фан"],
+  ["puzzle","🧩","Собрала пазл"],
+  ["memory","🃏","Чемпион памяти"],
+  ["dream","✨","Загадала мечту"],
+  ["reply","💌","Оставила ответ"],
+  ["secret","💝","Нашла секрет"]
+];
+
+// гороскоп совместимости (рандомный шуточный прогноз)
+const HOROSCOPE = [
+  "Звёзды говорят: сегодня вас ждёт минимум одна смехуятинка. 😄",
+  "Прогноз: 100% вероятность обнимашек. Готовьтесь.",
+  "Совместимость: зашкаливает. Прибор сломался. 💗",
+  "Сегодня кто-то будет думать о тебе весь день. (спойлер: это я)",
+  "Венера советует: напиши ему первой. Он обрадуется.",
+  "Карты сошлись: вы созданы друг для друга. Без вариантов. 🌹"
+];
+
+/* ====== ЛОГИКА (трогать не обязательно) ====== */
+
+// лепестки
+const FLOWERS = ["🌸","🌷","🌹","💮","🏵️"];
+const pc = document.getElementById('petals');
+for(let i=0;i<18;i++){
+  const p=document.createElement('div');p.className='petal';
+  p.textContent=FLOWERS[Math.floor(Math.random()*FLOWERS.length)];
+  p.style.left=Math.random()*100+'vw';
+  p.style.animationDuration=(7+Math.random()*8)+'s';
+  p.style.animationDelay=(-Math.random()*10)+'s';
+  p.style.fontSize=(16+Math.random()*16)+'px';
+  pc.appendChild(p);
+}
+
+// счётчик
+function tick(){
+  const now=new Date();let diff=Math.floor((now-START)/1000);
+  const d=Math.floor(diff/86400);diff-=d*86400;
+  const h=Math.floor(diff/3600);diff-=h*3600;
+  const m=Math.floor(diff/60);const s=diff-m*60;
+  const data=[[d,'дней'],[h,'часов'],[m,'минут'],[s,'секунд']];
+  document.getElementById('counter').innerHTML=
+    `<div style="width:100%;font-size:14px;color:var(--pink-deep);margin-bottom:6px">мы вместе уже</div>`+
+    data.map(x=>`<div class="cbox"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
+}
+tick();setInterval(tick,1000);
+
+// причины (появляются при скролле)
+const rc=document.getElementById('reasons');
+REASONS.forEach(r=>{
+  const d=document.createElement('div');d.className='reason';
+  d.innerHTML=`<span class="em">${r[0]}</span><span>${r[1]}</span>`;
+  rc.appendChild(d);
+});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.3});
+document.querySelectorAll('.reason').forEach(el=>io.observe(el));
+
+// конверты
+let opened=new Set();
+const ec=document.getElementById('envs');
+ENVS.forEach((e,i)=>{
+  const d=document.createElement('div');d.className='env';
+  d.innerHTML=`<div class="ico">✉️</div><div class="lbl">${e[1]}</div>`;
+  d.onclick=()=>{openCard(e[0]+' '+e[1],`<p>${e[2]}</p>`);opened.add(i);unlock('env');checkSecret();};
+  ec.appendChild(d);
+});
+
+// галерея
+const gc=document.getElementById('gallery');
+for(let i=1;i<=PHOTO_COUNT;i++){
+  const ph=document.createElement('div');ph.className='ph';
+  const img=new Image();
+  img.onload=()=>{ph.innerHTML='';ph.appendChild(img);};
+  img.onerror=()=>{ph.textContent='🌷';};
+  img.src='photos/'+i+'.jpg';
+  const cap=PHOTO_CAPTIONS[i]||'';
+  ph.onclick=()=>{
+    if(img.complete&&img.naturalWidth)
+      openCard(cap||'💗',`<img src="photos/${i}.jpg">`);
+  };
+  gc.appendChild(ph);
+}
+
+// кнопка любви
+let love=0;
+const phrases=["я люблю тебя","и ещё больше","бесконечно","сильнее некуда... ладно, ещё сильнее","ты лучшая","моя любимая","не могу остановиться 💗"];
+document.getElementById('loveBtn').onclick=()=>{
+  love++;unlock('love');
+  const ph=phrases[Math.min(love-1,phrases.length-1)];
+  document.getElementById('loveCount').innerHTML=`<b>${love}</b> × ${ph} 💖`;
+  if(love>=5)checkSecret();
+};
+
+// overlay
+const ov=document.getElementById('overlay');
+function openCard(title,html){
+  document.getElementById('cardContent').innerHTML=`<h3>${title}</h3>${html}`;
+  ov.classList.add('open');
+}
+document.getElementById('closeBtn').onclick=()=>ov.classList.remove('open');
+ov.onclick=e=>{if(e.target===ov)ov.classList.remove('open')};
+
+// секрет: открыть все конверты + нажать любовь >=5
+const sb=document.getElementById('secretBtn');
+function checkSecret(){
+  if(opened.size>=ENVS.length && love>=5) sb.style.display='inline-block';
+}
+sb.onclick=()=>{unlock('secret');openCard(SECRET.title,SECRET.html);};
+
+// «люблю» на языках
+let li=0;const ll=document.getElementById('langline');
+function rotLang(){ll.style.opacity=0;setTimeout(()=>{ll.textContent='«'+LOVE_LANGS[li]+'»';ll.style.opacity=1;li=(li+1)%LOVE_LANGS.length;},400);}
+rotLang();setInterval(rotLang,2600);
+
+// след из сердечек
+let lastT=0;
+function spawnHeart(x,y){
+  const now=Date.now();if(now-lastT<60)return;lastT=now;
+  const h=document.createElement('div');h.className='trail';h.textContent='💗';
+  h.style.left=x+'px';h.style.top=y+'px';document.body.appendChild(h);
+  setTimeout(()=>h.remove(),900);
+}
+document.addEventListener('mousemove',e=>spawnHeart(e.clientX,e.clientY));
+document.addEventListener('touchmove',e=>{const t=e.touches[0];spawnHeart(t.clientX,t.clientY)},{passive:true});
+
+// таймлайн
+const tc=document.getElementById('timeline');
+TIMELINE.forEach(t=>{
+  const d=document.createElement('div');d.className='tl';
+  d.innerHTML=`<div class="date">${t[1]} ${t[0]}</div><div class="txt">${t[2]}</div>`;
+  tc.appendChild(d);
+});
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.4});
+document.querySelectorAll('.tl').forEach(el=>io2.observe(el));
+
+// викторина
+let qi=0,qscore=0;
+const qc=document.getElementById('quiz');
+function renderQuiz(){
+  if(qi>=QUIZ.length){
+    const msg=QUIZ_END[Math.min(qscore,QUIZ_END.length-1)];
+    qc.innerHTML=`<div class="q" style="text-align:center">Готово! ${qscore} из ${QUIZ.length} 💗<br><br>${msg}</div>
+      <div class="nav"><button class="opt" style="text-align:center" onclick="restartQuiz()">пройти заново</button></div>`;
+    return;
+  }
+  const [q,opts,correct]=QUIZ[qi];
+  qc.innerHTML=`<div class="q">${qi+1}. ${q}</div>`+opts.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')+`<div class="nav">вопрос ${qi+1} из ${QUIZ.length}</div>`;
+  qc.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i;
+    qc.querySelectorAll('.opt').forEach(x=>x.disabled=true);
+    if(i===correct){b.classList.add('right');qscore++;}
+    else{b.classList.add('wrong');qc.querySelectorAll('.opt')[correct].classList.add('right');}
+    setTimeout(()=>{qi++;renderQuiz();},900);
+  });
+}
+function restartQuiz(){qi=0;qscore=0;renderQuiz();}
+renderQuiz();
+
+// печенье
+document.getElementById('cookieBtn').onclick=()=>{
+  const f=FORTUNES[Math.floor(Math.random()*FORTUNES.length)];
+  openCard('🥠 твоё предсказание',`<p>${f}</p>`);
+};
+
+// обнимашка
+document.getElementById('hugBtn').onclick=()=>{
+  openCard('',`<div class="hugAnim">🫂</div><p style="margin-top:14px">${HUG_TEXT}</p>`);
+};
+
+// скретч-карта
+document.getElementById('scratchMsg').textContent=SCRATCH_MSG;
+(function(){
+  const cv=document.getElementById('scratchCanvas');const wrap=cv.parentElement;
+  function size(){const r=wrap.getBoundingClientRect();cv.width=r.width;cv.height=r.height;
+    const ctx=cv.getContext('2d');ctx.fillStyle='#cda9bb';ctx.fillRect(0,0,cv.width,cv.height);
+    ctx.fillStyle='#fff';ctx.font='16px Comfortaa';ctx.textAlign='center';ctx.fillText('сотри меня 💗',cv.width/2,cv.height/2);}
+  size();window.addEventListener('resize',size);
+  const ctx=cv.getContext('2d');let drawing=false;
+  function pos(e){const r=cv.getBoundingClientRect();const p=e.touches?e.touches[0]:e;return[p.clientX-r.left,p.clientY-r.top];}
+  function scratch(e){if(!drawing)return;const[x,y]=pos(e);ctx.globalCompositeOperation='destination-out';
+    ctx.beginPath();ctx.arc(x,y,22,0,7);ctx.fill();}
+  cv.addEventListener('mousedown',()=>drawing=true);
+  cv.addEventListener('mouseup',()=>drawing=false);
+  cv.addEventListener('mouseleave',()=>drawing=false);
+  cv.addEventListener('mousemove',scratch);
+  cv.addEventListener('touchstart',()=>drawing=true,{passive:true});
+  cv.addEventListener('touchend',()=>drawing=false);
+  cv.addEventListener('touchmove',e=>{scratch(e);},{passive:true});
+})();
+
+// игра «лови сердечки»
+let gScore=0,gTime=30,gTimer=null,gSpawn=null,gOn=false;
+const gEl=document.getElementById('game');
+document.getElementById('gameStart').onclick=()=>{
+  if(gOn)return;gOn=true;gScore=0;gTime=30;
+  document.getElementById('gameScore').textContent='очки: 0';
+  document.getElementById('gameStart').textContent='лови!';
+  gTimer=setInterval(()=>{gTime--;document.getElementById('gameTime').textContent='⏱ '+gTime;if(gTime<=0)endGame();},1000);
+  gSpawn=setInterval(()=>{
+    const h=document.createElement('div');h.className='fh';
+    const good=Math.random()>.25;h.textContent=good?'💗':'🖤';
+    h.style.left=Math.random()*88+'%';h.style.top='-30px';
+    h.style.animationDuration=(2+Math.random()*1.5)+'s';
+    h.onclick=()=>{if(!gOn)return;gScore+=good?1:-2;if(gScore<0)gScore=0;
+      document.getElementById('gameScore').textContent='очки: '+gScore;h.remove();};
+    h.addEventListener('animationend',()=>h.remove());
+    gEl.appendChild(h);
+  },520);
+};
+function endGame(){
+  gOn=false;clearInterval(gTimer);clearInterval(gSpawn);
+  gEl.querySelectorAll('.fh').forEach(x=>x.remove());
+  document.getElementById('gameStart').textContent='ещё раз';
+  document.getElementById('gameTime').textContent='⏱ 30';
+  let msg=gScore>=20?"Вау, чемпион! Держи поцелуй 😘":gScore>=10?"Отлично поймала! 💗":"Главное не очки — а что ты милая 🥰";
+  openCard('Поймала '+gScore+' 💗',`<p>${msg}</p>`);unlock('game');
+}
+
+// колесо
+const wheelEl=document.getElementById('wheel');
+(function(){
+  const n=WHEEL.length;const cols=['#ffd0e2','#ffc0d6','#ffb3cd','#ffc7dc'];
+  let seg=WHEEL.map((_,i)=>`${cols[i%cols.length]} ${i*360/n}deg ${(i+1)*360/n}deg`).join(',');
+  wheelEl.style.background=`conic-gradient(${seg})`;
+})();
+let wheelRot=0,wheelSpin=false;
+document.getElementById('wheelBtn').onclick=()=>{
+  if(wheelSpin)return;wheelSpin=true;
+  const n=WHEEL.length;const pick=Math.floor(Math.random()*n);
+  const segMid=pick*360/n+180/n;
+  wheelRot+=360*5+(360-segMid);
+  wheelEl.style.transform=`rotate(${wheelRot}deg)`;
+  document.getElementById('wheelRes').textContent='';
+  setTimeout(()=>{document.getElementById('wheelRes').textContent='➜ '+WHEEL[pick];wheelSpin=false;},4100);
+};
+
+// шарики
+const bc=document.getElementById('balloons');
+const bcols=['🎈','🩷','💗','🌸'];
+BALLOONS.forEach((t,i)=>{
+  const b=document.createElement('div');b.className='balloon';b.textContent='🎈';
+  b.style.filter=`hue-rotate(${i*40}deg)`;
+  b.onclick=()=>{b.classList.add('pop');setTimeout(()=>openCard('🎈 поп!',`<p>${t}</p>`),150);
+    setTimeout(()=>{b.classList.remove('pop');b.style.transform='';},2000);};
+  bc.appendChild(b);
+});
+
+// звёздное небо
+const sky=document.getElementById('sky');
+for(let i=0;i<26;i++){
+  const s=document.createElement('div');s.className='star';s.textContent=Math.random()>.5?'✦':'⭐';
+  s.style.left=Math.random()*94+'%';s.style.top=Math.random()*88+'%';
+  s.style.fontSize=(12+Math.random()*12)+'px';s.style.animationDelay=Math.random()*2+'s';
+  s.onclick=()=>{const w=WISHES[Math.floor(Math.random()*WISHES.length)];openCard('🌟',`<p>${w}</p>`);};
+  sky.appendChild(s);
+}
+
+// капсула времени
+const cap=document.getElementById('capsule');
+function capTick(){
+  const now=new Date();const diff=CAPSULE_DATE-now;
+  if(diff<=0){cap.innerHTML=`<div class="lock">🎁</div><p style="margin-top:12px">${CAPSULE_MSG}</p>`;return true;}
+  let s=Math.floor(diff/1000);const d=Math.floor(s/86400);s-=d*86400;
+  const h=Math.floor(s/3600);s-=h*3600;const m=Math.floor(s/60);s-=m*60;
+  cap.innerHTML=`<div class="lock">🔒</div><div class="cd">${d}д ${h}ч ${m}м ${s}с</div>
+    <div class="note">откроется ${CAPSULE_DATE.getDate()}.${CAPSULE_DATE.getMonth()+1}.${CAPSULE_DATE.getFullYear()} — наберись терпения 💗</div>`;
+  return false;
+}
+if(!capTick())setInterval(capTick,1000);
+
+// SOS
+document.getElementById('sosBtn').onclick=()=>{
+  const m=SOS[Math.floor(Math.random()*SOS.length)];openCard('🤍 я рядом',`<p>${m}</p>`);
+};
+
+// гороскоп
+document.getElementById('horoBtn').onclick=()=>{
+  const m=HOROSCOPE[Math.floor(Math.random()*HOROSCOPE.length)];openCard('🔮 прогноз на сегодня',`<p>${m}</p>`);
+};
+
+// === МЕМЫ МЕЛСТРОЯ ===
+function melShow(p){
+  unlock('mel');
+  if(p.vid){
+    let inner;
+    if(p.vid.type==='yt')
+      inner=`<iframe src="https://www.youtube.com/embed/${p.vid.src}?autoplay=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
+    else
+      inner=`<video controls autoplay playsinline src="memes/${p.vid.src}"></video>`;
+    openCard('',`<div class="melCap">${p.em} ${p.txt}</div><div class="mv"><div class="frame">${inner}</div></div>`);
+  }else{
+    openCard('',`<div class="melBig shake">${p.em}<br>${p.txt}</div>`);
+  }
+}
+const melB=document.getElementById('melBoard');
+MEL_PHRASES.forEach(p=>{
+  const b=document.createElement('button');b.className='melBtn';b.textContent=p.em+' '+p.txt;
+  b.onclick=()=>melShow(p);melB.appendChild(b);
+});
+document.getElementById('melRandom').onclick=()=>melShow(MEL_PHRASES[Math.floor(Math.random()*MEL_PHRASES.length)]);
+
+// магический шар
+const ball=document.getElementById('ball8');
+ball.onclick=()=>{
+  ball.classList.add('roll');document.getElementById('ballRes').textContent='...';
+  setTimeout(()=>{
+    ball.classList.remove('roll');
+    document.getElementById('ballRes').textContent=MEL_VERDICTS[Math.floor(Math.random()*MEL_VERDICTS.length)];
+  },600);
+};
+
+// ===== АЧИВКИ =====
+let achGot=JSON.parse(localStorage.getItem('liza_ach')||'[]');
+const achGrid=document.getElementById('achGrid');
+function renderAch(){
+  achGrid.innerHTML=ACHIEVEMENTS.map(a=>
+    `<div class="ach ${achGot.includes(a[0])?'got':''}"><div class="ai">${achGot.includes(a[0])?a[1]:'🔒'}</div><div class="an">${a[2]}</div></div>`
+  ).join('');
+}
+renderAch();
+const toast=document.createElement('div');toast.className='toast';document.body.appendChild(toast);
+let toastT=null;
+function unlock(id){
+  if(achGot.includes(id))return;
+  const a=ACHIEVEMENTS.find(x=>x[0]===id);if(!a)return;
+  achGot.push(id);localStorage.setItem('liza_ach',JSON.stringify(achGot));renderAch();
+  toast.innerHTML=`<span style="font-size:20px">${a[1]}</span> ачивка: ${a[2]}`;
+  toast.classList.add('show');clearTimeout(toastT);
+  toastT=setTimeout(()=>toast.classList.remove('show'),2600);
+}
+
+// ===== ПЕЧАТАЮЩЕЕСЯ ПИСЬМО =====
+const typeBox=document.getElementById('typeBox');
+let typeStarted=false;
+function runType(){
+  if(typeStarted)return;typeStarted=true;let i=0;
+  (function step(){
+    typeBox.innerHTML=TYPE_TEXT.slice(0,i).replace(/\n/g,'<br>')+'<span class="cur">|</span>';
+    if(i<=TYPE_TEXT.length){i++;setTimeout(step,55);}
+    else typeBox.innerHTML=TYPE_TEXT.replace(/\n/g,'<br>');
+  })();
+}
+new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){runType();o.disconnect();}})},{threshold:.4}).observe(typeBox);
+
+// ===== КАРТА МЕЧТ =====
+let dreamDone=JSON.parse(localStorage.getItem('liza_dreams')||'[]');
+const dc=document.getElementById('dreams');
+DREAMS.forEach((d,i)=>{
+  const el=document.createElement('div');el.className='dream'+(dreamDone.includes(i)?' done':'');
+  el.innerHTML=`<div class="box">${dreamDone.includes(i)?'✓':''}</div><span>${d}</span>`;
+  el.onclick=()=>{
+    if(dreamDone.includes(i))dreamDone=dreamDone.filter(x=>x!==i);
+    else{dreamDone.push(i);unlock('dream');}
+    localStorage.setItem('liza_dreams',JSON.stringify(dreamDone));
+    el.classList.toggle('done');el.querySelector('.box').textContent=el.classList.contains('done')?'✓':'';
+  };
+  dc.appendChild(el);
+});
+
+// ===== АДВЕНТ =====
+const ac=document.getElementById('advent');
+ADVENT.forEach((m,i)=>{
+  const el=document.createElement('div');el.className='adv';el.textContent=i+1;
+  el.onclick=()=>{el.classList.add('opened');el.textContent='💗';openCard('🎁 окошко '+(i+1),`<p>${m}</p>`);};
+  ac.appendChild(el);
+});
+
+// ===== ОТВЕТ ОТ НЕЁ =====
+const rt=document.getElementById('replyText');
+rt.value=localStorage.getItem('liza_reply')||'';
+document.getElementById('replySave').onclick=()=>{
+  localStorage.setItem('liza_reply',rt.value);unlock('reply');
+  document.getElementById('replySaved').textContent='сохранено 💗';
+};
+document.getElementById('replySend').onclick=()=>{
+  if(!rt.value.trim()){document.getElementById('replySaved').textContent='сначала напиши что-нибудь 🙂';return;}
+  unlock('reply');
+  location.href='mailto:angelxd41105@gmail.com?subject='+encodeURIComponent('сообщение от Лизы 💗')+'&body='+encodeURIComponent(rt.value);
+};
+
+// ===== СЛАЙД-ШОУ =====
+const ss=document.getElementById('slideshow');
+const slides=[];
+for(let i=1;i<=PHOTO_COUNT;i++){
+  const im=new Image();im.src='photos/'+i+'.jpg';
+  im.onload=()=>{if(!slides.includes(im)){slides.push(im);ss.appendChild(im);if(slides.length===1)im.classList.add('on');}};
+}
+let slideI=0,slideTimer=null,slidePlay=false;
+document.getElementById('slideBtn').onclick=()=>{
+  if(!slides.length){document.getElementById('slideBtn').textContent='нет фото — добавь в папку photos';return;}
+  slidePlay=!slidePlay;
+  const a=document.getElementById('bgAudio');
+  if(slidePlay){
+    document.getElementById('slideBtn').textContent='⏸ пауза';a.play().catch(()=>{});
+    slideTimer=setInterval(()=>{
+      slides[slideI].classList.remove('on');slideI=(slideI+1)%slides.length;slides[slideI].classList.add('on');
+    },2500);
+  }else{document.getElementById('slideBtn').textContent='▶ играть с музыкой';clearInterval(slideTimer);a.pause();}
+};
+
+// ===== ПАЗЛ (3x3) =====
+const PZ=3;let tiles=[],pzImg='photos/1.jpg';
+const pz=document.getElementById('puzzle');
+function buildPuzzle(shuffle){
+  tiles=[...Array(PZ*PZ).keys()];
+  if(shuffle){do{for(let i=tiles.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[tiles[i],tiles[j]]=[tiles[j],tiles[i]];}}while(!solvable()||solved());}
+  drawPuzzle();
+}
+function solvable(){let inv=0;const a=tiles.filter(x=>x!==8);for(let i=0;i<a.length;i++)for(let j=i+1;j<a.length;j++)if(a[i]>a[j])inv++;return inv%2===0;}
+function solved(){return tiles.every((v,i)=>v===i);}
+function drawPuzzle(){
+  pz.innerHTML='';
+  tiles.forEach((v,idx)=>{
+    const t=document.createElement('div');t.className='ptile'+(v===8?' empty':'');
+    if(v!==8){const r=Math.floor(v/PZ),c=v%PZ;t.style.backgroundImage=`url(${pzImg})`;t.style.backgroundPosition=`-${c*100}px -${r*100}px`;}
+    t.onclick=()=>moveTile(idx);pz.appendChild(t);
+  });
+}
+function moveTile(idx){
+  const empty=tiles.indexOf(8);const r1=Math.floor(idx/PZ),c1=idx%PZ,r2=Math.floor(empty/PZ),c2=empty%PZ;
+  if(Math.abs(r1-r2)+Math.abs(c1-c2)===1){[tiles[idx],tiles[empty]]=[tiles[empty],tiles[idx]];drawPuzzle();
+    if(solved()){document.getElementById('puzzleMsg').textContent='собрала! ты умница 💗';unlock('puzzle');}}
+}
+document.getElementById('puzzleBtn').onclick=()=>{document.getElementById('puzzleMsg').textContent='';buildPuzzle(true);};
+// проверим есть ли фото для пазла
+(()=>{const t=new Image();t.onload=()=>buildPuzzle(false);t.onerror=()=>{pz.innerHTML='<div style="grid-column:1/4;text-align:center;color:var(--pink-deep);padding:30px">добавь фото 1.jpg в папку photos</div>';};t.src=pzImg;})();
+
+// ===== ПАМЯТЬ =====
+const mem=document.getElementById('memory');
+function buildMemory(){
+  document.getElementById('memoryMsg').textContent='';
+  let ids=[1,2,3,4,5,6];let deck=[...ids,...ids].sort(()=>Math.random()-.5);
+  mem.innerHTML='';let flipped=[],lock=false,done=0;
+  deck.forEach(n=>{
+    const card=document.createElement('div');card.className='mcard';
+    card.innerHTML=`<div class="face back">?</div><div class="face front"><img src="photos/${n}.jpg" onerror="this.parentElement.innerHTML='🌷';this.parentElement.style.fontSize='28px'"></div>`;
+    card.onclick=()=>{
+      if(lock||card.classList.contains('flip')||card.classList.contains('done'))return;
+      card.classList.add('flip');flipped.push({card,n});
+      if(flipped.length===2){
+        lock=true;
+        if(flipped[0].n===flipped[1].n){
+          flipped.forEach(f=>f.card.classList.add('done'));done++;flipped=[];lock=false;
+          if(done===ids.length){document.getElementById('memoryMsg').textContent='все пары! 💗';unlock('memory');}
+        }else setTimeout(()=>{flipped.forEach(f=>f.card.classList.remove('flip'));flipped=[];lock=false;},800);
+      }
+    };
+    mem.appendChild(card);
+  });
+}
+document.getElementById('memoryBtn').onclick=buildMemory;
+buildMemory();
+
+// фоновая музыка (если есть song.mp3) — запуск после первого касания
+let started=false;
+document.body.addEventListener('click',()=>{
+  if(started)return;started=true;
+  const a=document.getElementById('bgAudio');
+  a.volume=.4;a.play().catch(()=>{});
+},{once:true});
+</script>
+</body>
+</html>
